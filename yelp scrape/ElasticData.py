@@ -7,7 +7,7 @@ from decimal import *
 from urllib.parse import quote
 
 # yelp api details
-API_KEY = "L3uTI7vz9L8joZCkXqMOjVlKcJtX9U4TVgrUHoVwbXAgSAvIiOJAEmgXxKusXr00Lub00zDj4LB1NSHODpqsZ9bH_26pmXKNJYmpuWGyMiQEuHtH07nwTh2DGsUdYnYx"
+API_KEY = ""
 API_HOST = 'https://api.yelp.com'
 SEARCH_PATH = '/v3/businesses/search'
 BUSINESS_PATH = '/v3/businesses/'  # Business ID will come after slash.
@@ -17,7 +17,7 @@ DEFAULT_TERM = 'dinner'
 DEFAULT_LOCATION = 'manhattan'
 SEARCH_LIMIT = 50
 
-host = 'https://search-yelp-restaurants-xz7lbz23eqrhjanziu2dirg6qi.us-east-1.es.amazonaws.com'
+host = ''
 
 index = 'restaurants'
 type = 'Restaurant'
@@ -65,7 +65,7 @@ def push_data(businesses):
         payload = business
         my_es_id = payload["Business ID"]
         try:
-            r = requests.put(url+str(my_es_id), json=payload, headers=headers, auth=("deadpanther", "Nshah98989!"))
+            r = requests.put(url+str(my_es_id), json=payload, headers=headers, auth=("", ""))
         except:
             print("Error in pushing to Kibana")
         print("afdasf",r)
