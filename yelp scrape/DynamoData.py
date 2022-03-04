@@ -5,7 +5,7 @@ from decimal import *
 import boto3
 from urllib.parse import quote
 
-API_KEY = "L3uTI7vz9L8joZCkXqMOjVlKcJtX9U4TVgrUHoVwbXAgSAvIiOJAEmgXxKusXr00Lub00zDj4LB1NSHODpqsZ9bH_26pmXKNJYmpuWGyMiQEuHtH07nwTh2DGsUdYnYx"
+API_KEY = ""
 
 # API constants, you shouldn't have to change these.
 API_HOST = 'https://api.yelp.com'
@@ -19,8 +19,8 @@ SEARCH_LIMIT = 50
 
 # connect to the dyanmoDB
 client = boto3.resource(service_name='dynamodb',
-                          aws_access_key_id="AKIA5HYBIAG5N4YKVAOM",
-                          aws_secret_access_key="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",
+                          aws_access_key_id="",
+                          aws_secret_access_key="",
                           region_name="us-east-1",
                          )
 table = client.Table('yelp-restaurants')
