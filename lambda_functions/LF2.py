@@ -84,7 +84,7 @@ def generate_suggestions(randomIds, cuisine, queue_message):
     dynamoDBResponses = []
     for id in randomIds:
         # get elastic search results for the random restaurant
-        url2 = 'https://search-yelp-restaurants-xz7lbz23eqrhjanziu2dirg6qi.us-east-1.es.amazonaws.com/restaurants/_search?from=' + str(id) + '&&size=1&&q=cuisine:' + cuisine
+        url2 = '' + str(id) + '&&size=1&&q=cuisine:' + cuisine
         random_elastic_response = requests.get(url2, auth = authent, headers={"Content-Type": "application/json"}).json()
         restaurantIds.append(random_elastic_response['hits']['hits'][0]['_source']['Business ID'])
     
@@ -128,7 +128,7 @@ def handle_queue_item():
             email = js['email']
 
             # call the elastic search
-            url = 'https://search-yelp-restaurants-xz7lbz23eqrhjanziu2dirg6qi.us-east-1.es.amazonaws.com/restaurants/_search?q=cuisine:' + cuisine
+            url = '' + cuisine
             elastic_response = requests.get(url, auth = authent, headers={"Content-Type": "application/json"}).json()
             number_of_hits = elastic_response['hits']["total"]
             randomIds = get_random_ids(number_of_hits)
